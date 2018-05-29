@@ -1,0 +1,40 @@
+Requests data from National Weather Service API:
+    Time
+        "timestamp":"2018-03-13T18:51:00+00:00"
+    Temperature (°C)
+        "temperature":-1.100122070312
+    Dewpoint (°C)
+        "dewpoint":-2.1999877929687
+    Wind direction
+        "windDirection":360
+    Wind speed (m/s)
+        "windSpeed":9.8000001907349
+    Wind gust (m/s)
+        "windGust":16
+    Station Pressure (Pa)
+        "barometricPressure":99700
+
+Converts to useful units/strings:
+    Time
+        as-is
+    Temperature
+        °F = (°C * 9/5) + 32
+    Dewpoint
+        °F = (°C * 9/5) + 32
+    Wind
+        Convert m/s to mph
+            mph = m/s * 2.2369
+        Parse wind direction down to secondary-intercardinal direction (i.e. NNE)
+            Round to 2 decimal places
+            every 22.5°
+            348.75-11.25 - N
+            11.26-33.75 - NNE
+            33.76-56.25 - NE
+            etc
+    Return to second row of SQL database
+
+Calculate density altitude
+
+Format into string
+
+Print and store results in SQL DB
