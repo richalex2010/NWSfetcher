@@ -1,16 +1,27 @@
 import requests
 import json
+import argparse
 
-# Important variables
-StationID = "KPWM" #nearest airport code typically
-timeOffset = -4 #timezone (from UTC)
+# Important variables - hard set in code, replaced with CLI arguments
+#StationID = "KBDL" #nearest airport code typically
+#timeOffset = -4 #timezone (from UTC)
+
+# adding CLI arguments
+parser = argparse.ArgumentParser()
+parser.add_argument('StationID', help="The station ID of the NWS weather station you'd like to fetch weather reports from")
+parser.add_argument('Offset', help="The offset from UTC for the weather station you're fetching reports from, for accurate local timestamps",type=int)
+args = parser.parse_args()
+
+# Set variables from arguments
+StationID = args.StationID
+timeOffset = args.Offset
 
 # Access NWS observations and load into variable 'data'
 response = requests.get("https://api.weather.gov/stations/%s/observations/current" % StationID)
 data = response.json()
 
 # Temporary solution to access local JSON file, copied direct from above API
-#filename = 'H:/GitHub/High-Power-Scoreboard/sample.json'
+#filename = 'H:/GitHub/NWSfetcher/sample.json'
 #if filename:
 #   with open(filename,'r') as f:
 #        data = json.load(f)
@@ -127,7 +138,6 @@ else:
     windDirectionStr = "INV"
 
 #work with timestamp, convert to local time
-print(timestampRaw)
 
 timestamp = {
     'year': timestampRaw[0:4],
@@ -189,6 +199,8 @@ updateTime = str('Last updated: %s:%s on %s-%s-%s' % (timestamp['hour'],timestam
 #simplify to display text
 outputUSC = "%d°F, %s %d G %d mph, %d ft DA" % (temperatureF, windDirectionStr, windSpeedMPH, windGustMPH, densityAltitudeFt)
 outputMetric = "%d°C, %s %d G %d kph, %d m DA" % (temperature, windDirectionStr, windSpeedKPH, windGustKPH, densityAltitudeM)
+print(StationID)
 print('US Customary:',outputUSC)
 print('Metric:',outputMetric)
 print(updateTime)
+print(timeOffset)

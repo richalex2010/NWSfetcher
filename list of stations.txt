@@ -1,0 +1,34 @@
+Scarborough Fish and Game:
+	KPWM
+	-5
+	4.2 miles
+	
+Nashua Fish and Game:
+	KASH
+	-5
+	2.2 miles
+	
+Redding Rifle and Revolver:
+	KBVY
+	-5
+	9.1 miles
+	
+Team O'Neil Rally School, Dalton, NH (PRS New England)
+	KHIE
+	-5
+	7.7 miles
+	
+Port Malabar Rifle & Pistol Club, FL
+	KMLB
+	-5
+	8.7 miles
+	
+Coalinga Rifle Club, CA
+	AT338
+	-8
+	16.3 miles
+	
+Sacramento Valley Shooting Center
+	BENC1
+	-8
+	12.2 miles
