@@ -1,6 +1,7 @@
 import requests
 import json
 import argparse
+import pymysql
 
 # Important variables - hard set in code, replaced with CLI arguments
 #StationID = "KBDL" #nearest airport code typically
@@ -204,3 +205,6 @@ print('US Customary:',outputUSC)
 print('Metric:',outputMetric)
 print(updateTime)
 print(timeOffset)
+print("Uploading...")
+
+#MySQL DB setup

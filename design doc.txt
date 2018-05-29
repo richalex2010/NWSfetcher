@@ -38,3 +38,7 @@ Calculate density altitude
 Format into string
 
 Print and store results in SQL DB
+
+Database:
+	if row doesn't exist, add it
+	if row exists, insert data
